@@ -12,4 +12,11 @@
     <artifactId>resume_dao</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.nlc.ir</groupId>
+            <artifactId>resume_domain</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

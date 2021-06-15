@@ -12,11 +12,32 @@
         <module>resume_web</module>
         <module>resume_dao</module>
         <module>resume_service</module>
+        <module>resume_domain</module>
     </modules>
 
 <dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>com.nlc.ir</groupId>
+            <artifactId>resume_dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nlc.ir</groupId>
+            <artifactId>resume_domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nlc.ir</groupId>
+            <artifactId>resume_service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nlc.ir</groupId>
+            <artifactId>resume_web</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
@@ -26,6 +47,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
             <version>2.1.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
         </dependency>
     </dependencies>
 

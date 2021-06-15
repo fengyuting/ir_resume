@@ -11,5 +11,11 @@
 
     <artifactId>resume_service</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.nlc.ir</groupId>
+            <artifactId>resume_dao</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
