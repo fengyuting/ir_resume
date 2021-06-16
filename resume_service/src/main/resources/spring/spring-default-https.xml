@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+
+    <!-- 定义 HttpClient工厂，这里使用HttpClientBuilder构建-->
+    <bean id="httpsClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder" factory-method="create">
+        <!--<property name="SSLContext" ref=""></property>-->
+        <!--<property name="SSLHostnameVerifier" ref=""></property>-->
+        <property name="MaxConnTotal" value="200"></property>
+        <property name="MaxConnPerRoute" value="100"></property>
+    </bean>
+
+    <!-- 得到httpClient的实例 -->
+    <bean id="httpsClient" factory-bean="httpsClientBuilder" factory-method="build"/>
+
+
+    <!-- 定义requestConfig的工厂 -->
+    <bean id="requestHttpsConfigBuilder" class="org.apache.http.client.config.RequestConfig.Builder">
+        <!-- 从连接池中获取到连接的最长时间 -->
+        <property name="connectionRequestTimeout" value="3000"/>
+        <!-- 创建连接的最长时间 -->
+        <property name="connectTimeout" value="5000"/>
+        <!-- 数据传输的最长时间 -->
+        <property name="socketTimeout" value="10000"/>
+        <!-- 提交请求前测试连接是否可用 -->
+        <property name="staleConnectionCheckEnabled" value="true"/>
+    </bean>
+    <!-- 得到requestConfig实例 -->
+    <bean id="requestHttpsConfig" factory-bean="requestHttpsConfigBuilder" factory-method="build" />
+
+</beans>
