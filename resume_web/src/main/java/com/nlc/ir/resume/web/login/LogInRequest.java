@@ -1,4 +1,4 @@
-package com.nlc.ir.resume.domain.login;
+package com.nlc.ir.resume.web.login;
 
 import com.nlc.ir.resume.domain.common.BaseRequest;
 
@@ -15,4 +15,11 @@ public class LogInRequest extends BaseRequest {
     private String js_code;
 
 
+    public String getJs_code() {
+        return js_code;
+    }
+
+    public void setJs_code(String js_code) {
+        this.js_code = js_code;
+    }
 }

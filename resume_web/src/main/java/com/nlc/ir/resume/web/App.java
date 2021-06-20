@@ -1,14 +1,7 @@
 package com.nlc.ir.resume.web;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.io.IOException;
 
 /**
  * @Description: web入口
@@ -16,7 +9,7 @@ import java.io.IOException;
  * @Date 2021/6/14
  **/
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages ={"com.nlc.ir.resume"})
 public class App {
 
 
@@ -29,28 +22,28 @@ public class App {
 
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code";
 
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-
-        HttpGet httpGet = new HttpGet(url);
-        CloseableHttpResponse response = null;
-        try {
-            try {
-
-                response = httpClient.execute(httpGet);
-                HttpEntity entity = response.getEntity();
-
-            } catch (IOException e) {
-
-
-            } finally {
-
-                if (response != null) {
-                    response.close();
-                }
-            }
-        } catch (Exception e) {
-
-        }
+//        CloseableHttpClient httpClient = HttpClients.createDefault();
+//
+//        HttpGet httpGet = new HttpGet(url);
+//        CloseableHttpResponse response = null;
+//        try {
+//            try {
+//
+//                response = httpClient.execute(httpGet);
+//                HttpEntity entity = response.getEntity();
+//
+//            } catch (IOException e) {
+//
+//
+//            } finally {
+//
+//                if (response != null) {
+//                    response.close();
+//                }
+//            }
+//        } catch (Exception e) {
+//
+//        }
 
 
     }

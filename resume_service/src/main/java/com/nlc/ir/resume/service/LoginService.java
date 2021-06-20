@@ -1,6 +1,6 @@
 package com.nlc.ir.resume.service;
 
-import org.springframework.stereotype.Service;
+import com.nlc.ir.resume.domain.login.WechatAuthBean;
 
 /**
  * @Description: TODO
@@ -10,5 +10,12 @@ import org.springframework.stereotype.Service;
 
 public interface LoginService {
 
+
+    /**
+     * 登录逻辑处理
+     * @param jsCode
+     * @return
+     */
+    WechatAuthBean login(String jsCode);
 
 }
