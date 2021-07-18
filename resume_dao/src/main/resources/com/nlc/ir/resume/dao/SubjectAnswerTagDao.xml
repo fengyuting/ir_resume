@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nlc.ir.resume.dao.SubjectAnswerTagDao">
+  <resultMap id="BaseResultMap" type="com.nlc.ir.resume.domain.resume.SubjectAnswerTag">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
+    <result column="subject_num" jdbcType="SMALLINT" property="subjectNum" />
+    <result column="answer_num" jdbcType="SMALLINT" property="answerNum" />
+    <result column="tag_value" jdbcType="VARCHAR" property="tagValue" />
+    <result column="tag_type" jdbcType="TINYINT" property="tagType" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tag_name, subject_num, answer_num, tag_value, tag_type, created_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from subject_answer_tag
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from subject_answer_tag
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.nlc.ir.resume.domain.resume.SubjectAnswerTag" useGeneratedKeys="true">
+    insert into subject_answer_tag (tag_name, subject_num, answer_num, 
+      tag_value, tag_type, created_time, 
+      modify_time)
+    values (#{tagName,jdbcType=VARCHAR}, #{subjectNum,jdbcType=SMALLINT}, #{answerNum,jdbcType=SMALLINT}, 
+      #{tagValue,jdbcType=VARCHAR}, #{tagType,jdbcType=TINYINT}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.nlc.ir.resume.domain.resume.SubjectAnswerTag" useGeneratedKeys="true">
+    insert into subject_answer_tag
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tagName != null">
+        tag_name,
+      </if>
+      <if test="subjectNum != null">
+        subject_num,
+      </if>
+      <if test="answerNum != null">
+        answer_num,
+      </if>
+      <if test="tagValue != null">
+        tag_value,
+      </if>
+      <if test="tagType != null">
+        tag_type,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tagName != null">
+        #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectNum != null">
+        #{subjectNum,jdbcType=SMALLINT},
+      </if>
+      <if test="answerNum != null">
+        #{answerNum,jdbcType=SMALLINT},
+      </if>
+      <if test="tagValue != null">
+        #{tagValue,jdbcType=VARCHAR},
+      </if>
+      <if test="tagType != null">
+        #{tagType,jdbcType=TINYINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nlc.ir.resume.domain.resume.SubjectAnswerTag">
+    update subject_answer_tag
+    <set>
+      <if test="tagName != null">
+        tag_name = #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectNum != null">
+        subject_num = #{subjectNum,jdbcType=SMALLINT},
+      </if>
+      <if test="answerNum != null">
+        answer_num = #{answerNum,jdbcType=SMALLINT},
+      </if>
+      <if test="tagValue != null">
+        tag_value = #{tagValue,jdbcType=VARCHAR},
+      </if>
+      <if test="tagType != null">
+        tag_type = #{tagType,jdbcType=TINYINT},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nlc.ir.resume.domain.resume.SubjectAnswerTag">
+    update subject_answer_tag
+    set tag_name = #{tagName,jdbcType=VARCHAR},
+      subject_num = #{subjectNum,jdbcType=SMALLINT},
+      answer_num = #{answerNum,jdbcType=SMALLINT},
+      tag_value = #{tagValue,jdbcType=VARCHAR},
+      tag_type = #{tagType,jdbcType=TINYINT},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
