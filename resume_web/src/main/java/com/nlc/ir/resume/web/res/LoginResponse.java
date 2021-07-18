@@ -1,6 +1,7 @@
-package com.nlc.ir.resume.web.login;
+package com.nlc.ir.resume.web.res;
 
-import com.nlc.ir.resume.domain.common.BaseResponse;
+
+import com.nlc.ir.resume.web.common.BaseResponse;
 
 public class LoginResponse extends BaseResponse {
 

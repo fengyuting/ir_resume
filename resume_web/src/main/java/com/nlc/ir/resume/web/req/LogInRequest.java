@@ -1,6 +1,6 @@
-package com.nlc.ir.resume.web.login;
+package com.nlc.ir.resume.web.req;
 
-import com.nlc.ir.resume.domain.common.BaseRequest;
+import com.nlc.ir.resume.web.common.BaseRequest;
 
 /**
  * @Description: 登录请求体

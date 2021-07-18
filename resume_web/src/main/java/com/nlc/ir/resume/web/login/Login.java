@@ -1,8 +1,8 @@
-package com.nlc.ir.resume.web;
+package com.nlc.ir.resume.web.login;
 
 import com.nlc.ir.resume.domain.login.WechatAuthBean;
 import com.nlc.ir.resume.service.LoginService;
-import com.nlc.ir.resume.web.login.LoginResponse;
+import com.nlc.ir.resume.web.res.LoginResponse;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
