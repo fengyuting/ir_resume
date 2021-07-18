@@ -1,4 +1,4 @@
-package com.nlc.ir.resume.web.res;
+package com.nlc.ir.resume.web.res.bo;
 
 import com.nlc.ir.resume.web.common.BaseResponse;
 import lombok.Data;
