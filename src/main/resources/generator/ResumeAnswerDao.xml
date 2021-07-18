@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nlc.ir.resume.dao.ResumeAnswerDao">
+  <resultMap id="BaseResultMap" type="com.nlc.ir.resume.domain.resume.ResumeAnswer">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="num" jdbcType="SMALLINT" property="num" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="subject_num" jdbcType="SMALLINT" property="subjectNum" />
+    <result column="tag_num" jdbcType="SMALLINT" property="tagNum" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, num, content, subject_num, tag_num, created_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from resume_answer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from resume_answer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.nlc.ir.resume.domain.resume.ResumeAnswer" useGeneratedKeys="true">
+    insert into resume_answer (num, content, subject_num, 
+      tag_num, created_time, modify_time
+      )
+    values (#{num,jdbcType=SMALLINT}, #{content,jdbcType=VARCHAR}, #{subjectNum,jdbcType=SMALLINT}, 
+      #{tagNum,jdbcType=SMALLINT}, #{createdTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.nlc.ir.resume.domain.resume.ResumeAnswer" useGeneratedKeys="true">
+    insert into resume_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="num != null">
+        num,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="subjectNum != null">
+        subject_num,
+      </if>
+      <if test="tagNum != null">
+        tag_num,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="num != null">
+        #{num,jdbcType=SMALLINT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectNum != null">
+        #{subjectNum,jdbcType=SMALLINT},
+      </if>
+      <if test="tagNum != null">
+        #{tagNum,jdbcType=SMALLINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nlc.ir.resume.domain.resume.ResumeAnswer">
+    update resume_answer
+    <set>
+      <if test="num != null">
+        num = #{num,jdbcType=SMALLINT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectNum != null">
+        subject_num = #{subjectNum,jdbcType=SMALLINT},
+      </if>
+      <if test="tagNum != null">
+        tag_num = #{tagNum,jdbcType=SMALLINT},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nlc.ir.resume.domain.resume.ResumeAnswer">
+    update resume_answer
+    set num = #{num,jdbcType=SMALLINT},
+      content = #{content,jdbcType=VARCHAR},
+      subject_num = #{subjectNum,jdbcType=SMALLINT},
+      tag_num = #{tagNum,jdbcType=SMALLINT},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

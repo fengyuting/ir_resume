@@ -1,4 +1,4 @@
-package com.nlc.ir.resume.domain.common;
+package com.nlc.ir.resume.web.common;
 
 import java.io.Serializable;
 
