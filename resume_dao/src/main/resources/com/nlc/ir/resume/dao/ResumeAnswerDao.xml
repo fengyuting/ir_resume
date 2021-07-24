@@ -3,7 +3,7 @@
 <mapper namespace="com.nlc.ir.resume.dao.ResumeAnswerDao">
   <resultMap id="BaseResultMap" type="com.nlc.ir.resume.domain.resume.ResumeAnswer">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="num" jdbcType="SMALLINT" property="num" />
+    <result column="num" jdbcType="VARCHAR" property="num" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="subject_num" jdbcType="SMALLINT" property="subjectNum" />
     <result column="tag_num" jdbcType="SMALLINT" property="tagNum" />
@@ -13,11 +13,10 @@
   <sql id="Base_Column_List">
     id, num, content, subject_num, tag_num, created_time, modify_time
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectAll" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from resume_answer
-    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from resume_answer
@@ -27,7 +26,7 @@
     insert into resume_answer (num, content, subject_num, 
       tag_num, created_time, modify_time
       )
-    values (#{num,jdbcType=SMALLINT}, #{content,jdbcType=VARCHAR}, #{subjectNum,jdbcType=SMALLINT}, 
+    values (#{num,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{subjectNum,jdbcType=SMALLINT},
       #{tagNum,jdbcType=SMALLINT}, #{createdTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -55,7 +54,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="num != null">
-        #{num,jdbcType=SMALLINT},
+        #{num,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
@@ -78,7 +77,7 @@
     update resume_answer
     <set>
       <if test="num != null">
-        num = #{num,jdbcType=SMALLINT},
+        num = #{num,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
@@ -96,16 +95,6 @@
         modify_time = #{modifyTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.nlc.ir.resume.domain.resume.ResumeAnswer">
-    update resume_answer
-    set num = #{num,jdbcType=SMALLINT},
-      content = #{content,jdbcType=VARCHAR},
-      subject_num = #{subjectNum,jdbcType=SMALLINT},
-      tag_num = #{tagNum,jdbcType=SMALLINT},
-      created_time = #{createdTime,jdbcType=TIMESTAMP},
-      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

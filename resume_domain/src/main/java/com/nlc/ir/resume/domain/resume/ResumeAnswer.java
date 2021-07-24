@@ -16,7 +16,7 @@ public class ResumeAnswer implements Serializable {
     /**
      * 答案编号
      */
-    private Short num;
+    private String num;
 
     /**
      * 答案内容

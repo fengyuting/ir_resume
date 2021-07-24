@@ -14,7 +14,7 @@ public class ResumeBasicRes extends BaseResponse {
     /**
      * 用户基础信息
      */
-    private ResumeBasicBo resumeBasic;
+    private ResumeBasicBo data;
 
     public static ResumeBasicRes fail(ResCode resCode){
         ResumeBasicRes res = new ResumeBasicRes();
