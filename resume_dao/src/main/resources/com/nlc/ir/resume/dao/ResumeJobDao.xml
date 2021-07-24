@@ -16,11 +16,11 @@
     id, user_id, company_name, `position`, job_content, begin_time, end_time, created_time, 
     modify_time
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from resume_job
-    where id = #{id,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from resume_job

@@ -3,6 +3,8 @@ package com.nlc.ir.resume.dao;
 
 import com.nlc.ir.resume.domain.resume.ResumeEducation;
 
+import java.util.List;
+
 public interface ResumeEducationDao {
     int deleteByPrimaryKey(Integer id);
 
@@ -10,7 +12,7 @@ public interface ResumeEducationDao {
 
     int insertSelective(ResumeEducation record);
 
-    ResumeEducation selectByPrimaryKey(Integer id);
+    List<ResumeEducation> selectByUserId(String  userId);
 
     int updateByPrimaryKeySelective(ResumeEducation record);
 
