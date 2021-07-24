@@ -15,6 +15,4 @@ public interface ResumeEducationDao {
     List<ResumeEducation> selectByUserId(String  userId);
 
     int updateByPrimaryKeySelective(ResumeEducation record);
-
-    int updateByPrimaryKey(ResumeEducation record);
 }

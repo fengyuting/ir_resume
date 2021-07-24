@@ -100,7 +100,7 @@ public class ExperienceServiceImpl implements ExperienceService {
         BeanUtils.copyProperties(educationBo,education);
         int i = 0;
         if(null == education.getId()){
-            i =  resumeEducationDao.updateByPrimaryKey(education);
+            i =  resumeEducationDao.updateByPrimaryKeySelective(education);
         }else {
             i = resumeEducationDao.insert(education);
         }
@@ -115,7 +115,7 @@ public class ExperienceServiceImpl implements ExperienceService {
         BeanUtils.copyProperties(jobBo,job);
         int i = 0;
         if(null == job.getId()){
-            i =  resumeJobDao.updateByPrimaryKey(job);
+            i =  resumeJobDao.updateByPrimaryKeySelective(job);
         }else {
             i = resumeJobDao.insert(job);
         }
@@ -130,7 +130,7 @@ public class ExperienceServiceImpl implements ExperienceService {
         BeanUtils.copyProperties(authenticationBo,authentication);
         int i = 0;
         if(null == authentication.getId()){
-            i =  resumeAuthenticationDao.updateByPrimaryKey(authentication);
+            i =  resumeAuthenticationDao.updateByPrimaryKeySelective(authentication);
         }else {
             i = resumeAuthenticationDao.insert(authentication);
         }
@@ -145,7 +145,7 @@ public class ExperienceServiceImpl implements ExperienceService {
         BeanUtils.copyProperties(awardBo,award);
         int i = 0;
         if(null == award.getId()){
-            i =  resumeAwardDao.updateByPrimaryKey(award);
+            i =  resumeAwardDao.updateByPrimaryKeySelective(award);
         }else {
             i = resumeAwardDao.insert(award);
         }

@@ -191,23 +191,5 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.nlc.ir.resume.domain.resume.ResumeBasic">
-    update resume_basic
-    set user_Id = #{userId,jdbcType=VARCHAR},
-      `name` = #{name,jdbcType=VARCHAR},
-      gender = #{gender,jdbcType=SMALLINT},
-      birthday = #{birthday,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      mail = #{mail,jdbcType=VARCHAR},
-      province = #{province,jdbcType=VARCHAR},
-      city = #{city,jdbcType=VARCHAR},
-      area = #{area,jdbcType=VARCHAR},
-      address = #{address,jdbcType=VARCHAR},
-      job_direction = #{jobDirection,jdbcType=VARCHAR},
-      education = #{education,jdbcType=SMALLINT},
-      political = #{political,jdbcType=SMALLINT},
-      created_time = #{createdTime,jdbcType=TIMESTAMP},
-      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+
 </mapper>

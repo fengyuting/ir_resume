@@ -14,5 +14,4 @@ public interface ResumeSubjectDao {
 
     int updateByPrimaryKeySelective(ResumeSubject record);
 
-    int updateByPrimaryKey(ResumeSubject record);
 }

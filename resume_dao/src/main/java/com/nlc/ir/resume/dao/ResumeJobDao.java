@@ -16,5 +16,4 @@ public interface ResumeJobDao {
 
     int updateByPrimaryKeySelective(ResumeJob record);
 
-    int updateByPrimaryKey(ResumeJob record);
 }

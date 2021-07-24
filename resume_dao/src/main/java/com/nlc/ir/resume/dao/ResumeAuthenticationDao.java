@@ -15,5 +15,4 @@ public interface ResumeAuthenticationDao {
 
     int updateByPrimaryKeySelective(ResumeAuthentication record);
 
-    int updateByPrimaryKey(ResumeAuthentication record);
 }

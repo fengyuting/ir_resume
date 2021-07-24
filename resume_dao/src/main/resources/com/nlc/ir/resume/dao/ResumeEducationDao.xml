@@ -109,15 +109,4 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.nlc.ir.resume.domain.resume.ResumeEducation">
-    update resume_education
-    set user_id = #{userId,jdbcType=VARCHAR},
-      school_name = #{schoolName,jdbcType=VARCHAR},
-      professional_name = #{professionalName,jdbcType=VARCHAR},
-      begin_time = #{beginTime,jdbcType=VARCHAR},
-      end_time = #{endTime,jdbcType=VARCHAR},
-      created_time = #{createdTime,jdbcType=TIMESTAMP},
-      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
 </mapper>

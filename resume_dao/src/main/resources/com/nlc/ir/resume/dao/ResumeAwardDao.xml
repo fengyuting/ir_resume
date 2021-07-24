@@ -74,7 +74,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="generate.ResumeAward">
+  <update id="updateByPrimaryKeySelective" parameterType="com.nlc.ir.resume.domain.resume.ResumeAward">
     update resume_award
     <set>
       <if test="userId != null">
@@ -96,16 +96,6 @@
         modify_time = #{modifyTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.nlc.ir.resume.domain.resume.ResumeAward">
-    update resume_award
-    set user_id = #{userId,jdbcType=VARCHAR},
-      `level` = #{level,jdbcType=VARCHAR},
-      `type` = #{type,jdbcType=VARCHAR},
-      `desc` = #{desc,jdbcType=VARCHAR},
-      created_time = #{createdTime,jdbcType=TIMESTAMP},
-      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

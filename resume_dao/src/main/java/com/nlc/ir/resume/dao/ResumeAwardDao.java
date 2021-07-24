@@ -16,5 +16,4 @@ public interface ResumeAwardDao {
 
     int updateByPrimaryKeySelective(ResumeAward record);
 
-    int updateByPrimaryKey(ResumeAward record);
 }

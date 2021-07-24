@@ -34,7 +34,7 @@ public class ResumeBasicServiceImpl implements ResumeBasicService {
         BeanUtils.copyProperties(resumeBasic,resume);
         int i = 0;
         if(null == resumeBasic.getId()){
-          i =  resumeBasicDao.updateByPrimaryKey(resume);
+          i =  resumeBasicDao.updateByPrimaryKeySelective(resume);
         }else {
           i = resumeBasicDao.insert(resume);
         }

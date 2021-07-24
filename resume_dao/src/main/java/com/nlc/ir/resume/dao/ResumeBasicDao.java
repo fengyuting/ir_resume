@@ -13,5 +13,4 @@ public interface ResumeBasicDao {
 
     int updateByPrimaryKeySelective(ResumeBasic record);
 
-    int updateByPrimaryKey(ResumeBasic record);
 }
