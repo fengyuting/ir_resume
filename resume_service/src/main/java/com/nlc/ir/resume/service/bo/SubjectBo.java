@@ -24,7 +24,7 @@ public class SubjectBo implements Serializable {
     /**
      * 题目类型
      */
-    private Integer type;
+    private String type;
 
     /**
      * 选项

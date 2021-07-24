@@ -6,12 +6,11 @@
     <result column="num" jdbcType="VARCHAR" property="num" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="subject_num" jdbcType="SMALLINT" property="subjectNum" />
-    <result column="tag_num" jdbcType="SMALLINT" property="tagNum" />
     <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
     <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, num, content, subject_num, tag_num, created_time, modify_time
+    id, num, content, subject_num, created_time, modify_time
   </sql>
   <select id="selectAll" resultMap="BaseResultMap">
     select 
@@ -24,10 +23,10 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.nlc.ir.resume.domain.resume.ResumeAnswer" useGeneratedKeys="true">
     insert into resume_answer (num, content, subject_num, 
-      tag_num, created_time, modify_time
+       created_time, modify_time
       )
     values (#{num,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{subjectNum,jdbcType=SMALLINT},
-      #{tagNum,jdbcType=SMALLINT}, #{createdTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+       #{createdTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.nlc.ir.resume.domain.resume.ResumeAnswer" useGeneratedKeys="true">
@@ -41,9 +40,6 @@
       </if>
       <if test="subjectNum != null">
         subject_num,
-      </if>
-      <if test="tagNum != null">
-        tag_num,
       </if>
       <if test="createdTime != null">
         created_time,
@@ -61,9 +57,6 @@
       </if>
       <if test="subjectNum != null">
         #{subjectNum,jdbcType=SMALLINT},
-      </if>
-      <if test="tagNum != null">
-        #{tagNum,jdbcType=SMALLINT},
       </if>
       <if test="createdTime != null">
         #{createdTime,jdbcType=TIMESTAMP},
@@ -84,9 +77,6 @@
       </if>
       <if test="subjectNum != null">
         subject_num = #{subjectNum,jdbcType=SMALLINT},
-      </if>
-      <if test="tagNum != null">
-        tag_num = #{tagNum,jdbcType=SMALLINT},
       </if>
       <if test="createdTime != null">
         created_time = #{createdTime,jdbcType=TIMESTAMP},

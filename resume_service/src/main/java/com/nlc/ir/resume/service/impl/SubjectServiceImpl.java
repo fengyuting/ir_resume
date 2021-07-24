@@ -38,18 +38,22 @@ public class SubjectServiceImpl implements SubjectService {
         List<SubjectBo> subjectBos = new ArrayList<>();
         for(ResumeSubject subject : subjects){
             SubjectBo subjectBo = new SubjectBo();
-            subject.setNum(subject.getNum());
-            subject.setContent(subject.getContent());
-            subject.setType(subject.getType());
+            subjectBo.setNum(String.valueOf(subject.getNum()));
+            subjectBo.setContent(subject.getContent());
+            subjectBo.setType(String.valueOf(subject.getType()));
 
             List<AnswerBo> abos = new ArrayList<>();
             for(ResumeAnswer resumeAnswer : answerBos){
+                if(!resumeAnswer.getSubjectNum().equals(subject.getNum())){
+                    continue;
+                }
                 AnswerBo answerBo = new AnswerBo();
                 answerBo.setNum(resumeAnswer.getNum());
                 answerBo.setContent(resumeAnswer.getContent());
                 abos.add(answerBo);
             }
             subjectBo.setAnswer(abos);
+            subjectBos.add(subjectBo);
         }
         return subjectBos;
     }

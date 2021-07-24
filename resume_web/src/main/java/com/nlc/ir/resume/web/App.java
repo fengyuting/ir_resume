@@ -1,5 +1,6 @@
 package com.nlc.ir.resume.web;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Author fengyuting
  * @Date 2021/6/14
  **/
-
+@MapperScan("com.nlc.ir.resume.dao")
 @SpringBootApplication(scanBasePackages ={"com.nlc.ir.resume"})
 public class App {
 

@@ -29,7 +29,7 @@ public class ResumeBasicController {
         }
         ResumeBasicBo resumeBasic = resumeBasicService.getResumeBasicByUserId(userInfoReq.getUserId());
         ResumeBasicRes res = ResumeBasicRes.success();
-        res.setResumeBasic(resumeBasic);
+        res.setData(resumeBasic);
         return res;
     }
 

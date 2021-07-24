@@ -1,20 +1,17 @@
 package com.nlc.ir.resume.web.controller;
 
 import com.nlc.ir.resume.service.SubjectService;
-import com.nlc.ir.resume.web.common.BaseResponse;
 import com.nlc.ir.resume.web.common.ResCode;
 import com.nlc.ir.resume.web.req.UserInfoReq;
 import com.nlc.ir.resume.web.res.SubjectRes;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 @Slf4j
-@Controller
+@RestController
 public class SubjectController {
 
 
@@ -22,9 +19,9 @@ public class SubjectController {
     private SubjectService subjectService;
 
 
-    @PostMapping("resume/subjectList")
-    public SubjectRes subjectList(@RequestParam UserInfoReq userInfoReq){
-        if(null == userInfoReq || !StringUtils.hasLength(userInfoReq.getUserId())){
+    @RequestMapping("/subject")
+    public SubjectRes subjectList(@RequestParam(value = "userId",defaultValue = "123") String userId){
+        if(!StringUtils.hasLength(userId)){
             return SubjectRes.fail(ResCode.NO_AUTH);
         }
         SubjectRes res = SubjectRes.success();
