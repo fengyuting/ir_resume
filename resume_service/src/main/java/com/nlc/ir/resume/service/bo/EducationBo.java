@@ -1,12 +1,16 @@
-package com.nlc.ir.resume.web.res.bo;
+package com.nlc.ir.resume.service.bo;
 
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-public class Education implements Serializable {
+public class EducationBo implements Serializable {
 
+    /**
+     * id
+     */
+    private Integer id;
 
     /**
      * 学校名称

@@ -1,11 +1,16 @@
-package com.nlc.ir.resume.web.res.bo;
+package com.nlc.ir.resume.service.bo;
 
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-public class Award implements Serializable {
+public class AwardBo implements Serializable {
+
+    /**
+     * id
+     */
+    private Integer id;
 
     /**
      * 获奖级别

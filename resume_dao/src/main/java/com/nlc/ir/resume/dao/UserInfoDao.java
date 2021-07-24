@@ -1,6 +1,7 @@
 package com.nlc.ir.resume.dao;
 
-import generate.UserInfo;
+
+import com.nlc.ir.resume.domain.resume.UserInfo;
 
 public interface UserInfoDao {
     int deleteByPrimaryKey(Long id);

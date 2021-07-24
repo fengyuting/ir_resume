@@ -1,15 +1,15 @@
 package com.nlc.ir.resume.dao;
 
-import generate.ResumeBasic;
+
+import com.nlc.ir.resume.domain.resume.ResumeBasic;
 
 public interface ResumeBasicDao {
-    int deleteByPrimaryKey(Integer id);
 
     int insert(ResumeBasic record);
 
     int insertSelective(ResumeBasic record);
 
-    ResumeBasic selectByPrimaryKey(Integer id);
+    ResumeBasic selectByUserId(String userId);
 
     int updateByPrimaryKeySelective(ResumeBasic record);
 

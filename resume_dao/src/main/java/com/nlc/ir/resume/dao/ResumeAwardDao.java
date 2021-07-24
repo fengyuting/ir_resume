@@ -1,6 +1,7 @@
 package com.nlc.ir.resume.dao;
 
-import generate.ResumeAward;
+
+import com.nlc.ir.resume.domain.resume.ResumeAward;
 
 public interface ResumeAwardDao {
     int deleteByPrimaryKey(Integer id);

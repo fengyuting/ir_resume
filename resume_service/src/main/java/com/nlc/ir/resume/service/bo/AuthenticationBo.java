@@ -1,11 +1,16 @@
-package com.nlc.ir.resume.web.res.bo;
+package com.nlc.ir.resume.service.bo;
 
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-public class Authentication implements Serializable {
+public class AuthenticationBo implements Serializable {
+
+    /**
+     * id
+     */
+    private Integer id;
 
     /**
      * 技能类型

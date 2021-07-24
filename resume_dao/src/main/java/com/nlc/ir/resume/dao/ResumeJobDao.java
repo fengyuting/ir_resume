@@ -1,6 +1,7 @@
 package com.nlc.ir.resume.dao;
 
-import generate.ResumeJob;
+
+import com.nlc.ir.resume.domain.resume.ResumeJob;
 
 public interface ResumeJobDao {
     int deleteByPrimaryKey(Integer id);

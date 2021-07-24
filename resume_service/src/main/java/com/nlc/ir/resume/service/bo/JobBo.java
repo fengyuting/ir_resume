@@ -1,12 +1,16 @@
-package com.nlc.ir.resume.web.res.bo;
+package com.nlc.ir.resume.service.bo;
 
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-public class Job implements Serializable {
+public class JobBo implements Serializable {
 
+    /**
+     * id
+     */
+    private Integer id;
     /**
      * 公司名称
      */

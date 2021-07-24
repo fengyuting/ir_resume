@@ -1,6 +1,7 @@
 package com.nlc.ir.resume.dao;
 
-import generate.ResumeEducation;
+
+import com.nlc.ir.resume.domain.resume.ResumeEducation;
 
 public interface ResumeEducationDao {
     int deleteByPrimaryKey(Integer id);

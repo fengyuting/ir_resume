@@ -1,6 +1,7 @@
 package com.nlc.ir.resume.dao;
 
-import generate.SubjectAnswerTag;
+
+import com.nlc.ir.resume.domain.resume.SubjectAnswerTag;
 
 public interface SubjectAnswerTagDao {
     int deleteByPrimaryKey(Integer id);

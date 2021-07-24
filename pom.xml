@@ -18,6 +18,7 @@
 
     <properties>
         <spring-version>2.4.3</spring-version>
+        <version.lombok>1.18.16</version.lombok>
     </properties>
 
 <dependencyManagement>
@@ -100,6 +101,12 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.5.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${version.lombok}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

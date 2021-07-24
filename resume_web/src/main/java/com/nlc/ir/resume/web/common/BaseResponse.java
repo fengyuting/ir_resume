@@ -1,5 +1,8 @@
 package com.nlc.ir.resume.web.common;
 
+import com.nlc.ir.resume.web.res.ResumeBasicRes;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -7,7 +10,10 @@ import java.io.Serializable;
  * @Author fengyuting
  * @Date 2021/6/15
  **/
+@Data
 public class BaseResponse implements Serializable {
+
+    private boolean success;
 
     /**
      * 返回码
@@ -20,19 +26,28 @@ public class BaseResponse implements Serializable {
     private String msg;
 
 
-    public String getCode() {
-        return code;
+    public static BaseResponse fail(ResCode resCode){
+        ResumeBasicRes res = new ResumeBasicRes();
+        res.setSuccess(false);
+        res.setCode(resCode.getCode());
+        res.setMsg(resCode.getMsg());
+        return  res;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+
+    public static BaseResponse success(){
+        ResumeBasicRes res = new ResumeBasicRes();
+        res.setSuccess(true);
+        res.setCode(ResCode.SUCCESS.getCode());
+        res.setMsg(ResCode.SUCCESS.getCode());
+        return  res;
     }
 
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public static BaseResponse error(){
+        ResumeBasicRes res = new ResumeBasicRes();
+        res.setSuccess(false);
+        res.setCode(ResCode.ERROR.getCode());
+        res.setMsg(ResCode.ERROR.getCode());
+        return  res;
     }
 }

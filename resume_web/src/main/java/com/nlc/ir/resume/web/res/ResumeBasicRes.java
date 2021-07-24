@@ -1,6 +1,8 @@
 package com.nlc.ir.resume.web.res;
 
+import com.nlc.ir.resume.service.bo.ResumeBasicBo;
 import com.nlc.ir.resume.web.common.BaseResponse;
+import com.nlc.ir.resume.web.common.ResCode;
 import lombok.Data;
 
 /**
@@ -10,62 +12,32 @@ import lombok.Data;
 public class ResumeBasicRes extends BaseResponse {
 
     /**
-     * 姓名
+     * 用户基础信息
      */
-    private String name;
+    private ResumeBasicBo resumeBasic;
 
-    /**
-     * 性别 1:男 2:女
-     */
-    private Short gender;
+    public static ResumeBasicRes fail(ResCode resCode){
+        ResumeBasicRes res = new ResumeBasicRes();
+        res.setSuccess(false);
+        res.setCode(resCode.getCode());
+        res.setMsg(resCode.getMsg());
+        return  res;
+    }
 
-    /**
-     * 出生日期
-     */
-    private String birthday;
 
-    /**
-     * 手机号
-     */
-    private String phone;
+    public static ResumeBasicRes success(){
+        ResumeBasicRes res = new ResumeBasicRes();
+        res.setSuccess(true);
+        res.setCode(ResCode.SUCCESS.getCode());
+        res.setMsg(ResCode.SUCCESS.getCode());
+        return  res;
+    }
 
-    /**
-     * 电子邮箱
-     */
-    private String mail;
-
-    /**
-     * 省
-     */
-    private String province;
-
-    /**
-     * 市
-     */
-    private String city;
-
-    /**
-     * 区
-     */
-    private String area;
-
-    /**
-     * 详细地址
-     */
-    private String address;
-
-    /**
-     * 职业方向
-     */
-    private String jobDirection;
-
-    /**
-     * 最后学历 1:博士后 2:博士 3:硕士 4:MBA 5:本科 6:大专 7:中专 8: 高中
-     */
-    private Short education;
-
-    /**
-     * 政治面貌
-     */
-    private Short political;
+    public static ResumeBasicRes error(){
+        ResumeBasicRes res = new ResumeBasicRes();
+        res.setSuccess(false);
+        res.setCode(ResCode.ERROR.getCode());
+        res.setMsg(ResCode.ERROR.getCode());
+        return  res;
+    }
 }
