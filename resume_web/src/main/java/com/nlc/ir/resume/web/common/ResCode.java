@@ -5,7 +5,9 @@ public enum ResCode {
     SUCCESS("0000","成功"),
     ERROR("9999","失败"),
     NO_AUTH("0001","请登录"),
-    DATA_ERROR("0002","数据错误"),
+    SQ("0002","需要授权"),
+
+    DATA_ERROR("1000","数据错误"),
     ;
 
 

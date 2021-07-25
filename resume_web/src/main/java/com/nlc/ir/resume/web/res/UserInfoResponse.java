@@ -1,20 +1,20 @@
 package com.nlc.ir.resume.web.res;
 
-
+import com.nlc.ir.resume.service.bo.UserInfoBo;
 import com.nlc.ir.resume.web.common.BaseResponse;
 import com.nlc.ir.resume.web.common.ResCode;
 import lombok.Data;
 
 @Data
-public class LoginResponse extends BaseResponse {
-
+public class UserInfoResponse extends BaseResponse {
     /**
-     * openId
+     * 用户信息
      */
-    private String openId;
+    private UserInfoBo data;
 
-    public static LoginResponse fail(ResCode resCode){
-        LoginResponse res = new LoginResponse();
+
+    public static UserInfoResponse fail(ResCode resCode){
+        UserInfoResponse res = new UserInfoResponse();
         res.setSuccess(false);
         res.setCode(resCode.getCode());
         res.setMsg(resCode.getMsg());
@@ -22,16 +22,16 @@ public class LoginResponse extends BaseResponse {
     }
 
 
-    public static LoginResponse success(){
-        LoginResponse res = new LoginResponse();
+    public static UserInfoResponse success(){
+        UserInfoResponse res = new UserInfoResponse();
         res.setSuccess(true);
         res.setCode(ResCode.SUCCESS.getCode());
         res.setMsg(ResCode.SUCCESS.getCode());
         return  res;
     }
 
-    public static LoginResponse error(){
-        LoginResponse res = new LoginResponse();
+    public static UserInfoResponse error(){
+        UserInfoResponse res = new UserInfoResponse();
         res.setSuccess(false);
         res.setCode(ResCode.ERROR.getCode());
         res.setMsg(ResCode.ERROR.getCode());

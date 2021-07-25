@@ -1,10 +1,16 @@
-package com.nlc.ir.resume.web.req;
+package com.nlc.ir.resume.service.bo;
 
-import com.nlc.ir.resume.web.common.BaseRequest;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class UserInfoReq extends BaseRequest {
+public class UserInfoBo implements Serializable {
+
+    /**
+     * 用户ID
+     */
+    private String userId;
 
     /**
      * 是否用？
@@ -25,5 +31,4 @@ public class UserInfoReq extends BaseRequest {
      * 性别
      */
     private Integer gender;
-
 }

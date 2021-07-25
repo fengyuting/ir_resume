@@ -33,7 +33,7 @@ public class LoginServiceImpl implements LoginService {
     /**
      * 小程序密钥
      */
-    private static String SECRET="";
+    private static String SECRET="c3a4bbcde24c44eaa5c9e0a0e085a10b";
 
     /**
      * 授权类型
@@ -43,6 +43,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Resource
     private HttpExecutor httpExecutor;
+
 
 
     @Override
@@ -66,4 +67,5 @@ public class LoginServiceImpl implements LoginService {
         }
         return null;
     }
+
 }

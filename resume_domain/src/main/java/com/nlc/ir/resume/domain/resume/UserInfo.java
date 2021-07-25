@@ -1,6 +1,8 @@
 package com.nlc.ir.resume.domain.resume;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
 
 /**
@@ -9,6 +11,9 @@ import lombok.Data;
  */
 @Data
 public class UserInfo implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     /**
      * 主键
      */
@@ -19,22 +24,33 @@ public class UserInfo implements Serializable {
      */
     private String userId;
 
+    /**
+     * openId
+     */
     private String openId;
 
     /**
-     * 用户姓名
+     * 昵称
      */
-    private String name;
+    private String nickName;
 
     /**
-     * 用户手机号
+     * 头像
      */
-    private String phone;
+    private String avatarUrl;
 
     /**
-     * 用户邮箱
+     * 性别
      */
-    private String mail;
+    private Integer gender;
 
-    private static final long serialVersionUID = 1L;
+    /**
+     * 创建
+     */
+    private Date createdTime;
+
+    /**
+     * 修改
+     */
+    private Date modifyTime;
 }
