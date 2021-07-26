@@ -16,4 +16,14 @@ public class BaseRequest implements Serializable {
      * 用户标识
      */
     private String userId;
+
+    /**
+     * jscode
+     */
+    private String jsCode;
+
+    /**
+     * openId
+     */
+    private String openId;
 }

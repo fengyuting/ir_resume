@@ -4,16 +4,18 @@ import com.nlc.ir.resume.domain.login.WechatAuthBean;
 import com.nlc.ir.resume.service.LoginService;
 import com.nlc.ir.resume.service.UserInfoService;
 import com.nlc.ir.resume.service.bo.UserInfoBo;
+import com.nlc.ir.resume.web.common.BaseRequest;
 import com.nlc.ir.resume.web.common.ResCode;
 import com.nlc.ir.resume.web.req.UserInfoReq;
 import com.nlc.ir.resume.web.res.LoginResponse;
 import com.nlc.ir.resume.web.res.UserInfoResponse;
-import org.apache.catalina.User;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.xml.crypto.Data;
+import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
 
 /**
@@ -36,15 +38,15 @@ public class Login {
     @Resource
     private UserInfoService userInfoService;
 
-    @GetMapping("/login")
-    public LoginResponse login(@RequestParam(value = "jsCode",defaultValue = "") String jsCode){
+    @PostMapping("resume/login")
+    public LoginResponse login(@RequestBody BaseRequest req, HttpServletRequest request){
 
-        if(!StringUtils.hasLength(jsCode)){
+        if(null == req || !StringUtils.hasLength(req.getJsCode())){
             return LoginResponse.fail(ResCode.DATA_ERROR);
         }
         WechatAuthBean wechatAuthBean = null;
         try{
-            wechatAuthBean  = loginService.login(jsCode);
+            wechatAuthBean  = loginService.login(req.getJsCode());
             if(null == wechatAuthBean){
                 return LoginResponse.error();
             }
@@ -59,13 +61,13 @@ public class Login {
         return response;
     }
 
-    @GetMapping("/user")
-    public UserInfoResponse getUserInfo(@RequestParam(value = "openId",defaultValue = "") String openId){
-        if(!StringUtils.hasLength(openId)){
+    @PostMapping("resume/user")
+    public UserInfoResponse getUserInfo(@RequestBody BaseRequest req, HttpServletRequest request){
+        if(null == req || !StringUtils.hasLength(req.getOpenId())){
             return UserInfoResponse.fail(ResCode.DATA_ERROR);
         }
 
-        UserInfoBo userInfoBo =  userInfoService.getUserInfoByOpenId(openId);
+        UserInfoBo userInfoBo =  userInfoService.getUserInfoByOpenId(req.getOpenId());
         if(null == userInfoBo){
             return UserInfoResponse.fail(ResCode.SQ);
         }
@@ -74,8 +76,8 @@ public class Login {
         return response;
     }
 
-    @PostMapping("/create")
-    public UserInfoResponse createdInfo(@RequestBody UserInfoReq userInfoReq){
+    @PostMapping("resume/authorize")
+    public UserInfoResponse createdInfo(@RequestBody UserInfoReq userInfoReq, HttpServletRequest request){
         if(null == userInfoReq){
             return UserInfoResponse.fail(ResCode.DATA_ERROR);
         }
@@ -84,16 +86,15 @@ public class Login {
             userInfoBo = new UserInfoBo();
             userInfoBo.setUserId(UUID.randomUUID().toString());
             userInfoBo.setOpenId(userInfoReq.getOpenId());
-            userInfoBo.setNickName(userInfoBo.getNickName());
+            userInfoBo.setNickName(userInfoReq.getNickName());
             userInfoBo.setAvatarUrl(userInfoReq.getAvatarUrl());
             userInfoBo.setGender(userInfoReq.getGender());
             userInfoService.createNewUser(userInfoBo);
         }catch (Exception e){
-            return UserInfoResponse.error();
+            return UserInfoResponse.fail(ResCode.ERROR.getCode(),e.getMessage());
         }
         UserInfoResponse userInfoResponse = UserInfoResponse.success();
         userInfoResponse.setData(userInfoBo);
         return userInfoResponse;
     }
-
 }

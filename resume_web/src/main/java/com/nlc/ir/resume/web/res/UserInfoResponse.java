@@ -21,6 +21,14 @@ public class UserInfoResponse extends BaseResponse {
         return  res;
     }
 
+    public static UserInfoResponse fail(String code,String msg){
+        UserInfoResponse res = new UserInfoResponse();
+        res.setSuccess(false);
+        res.setCode(code);
+        res.setMsg(msg);
+        return  res;
+    }
+
 
     public static UserInfoResponse success(){
         UserInfoResponse res = new UserInfoResponse();

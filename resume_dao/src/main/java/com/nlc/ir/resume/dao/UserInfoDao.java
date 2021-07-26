@@ -10,9 +10,6 @@ public interface UserInfoDao {
 
     int insertSelective(UserInfo record);
 
-    UserInfo selectByPrimaryKey(Long id);
+    UserInfo selectByOpenId(String openId);
 
-    int updateByPrimaryKeySelective(UserInfo record);
-
-    int updateByPrimaryKey(UserInfo record);
 }

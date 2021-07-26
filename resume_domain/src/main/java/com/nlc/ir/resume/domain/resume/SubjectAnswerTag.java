@@ -10,6 +10,11 @@ import lombok.Data;
  */
 @Data
 public class SubjectAnswerTag implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * id
+     */
     private Integer id;
 
     /**
@@ -37,9 +42,15 @@ public class SubjectAnswerTag implements Serializable {
      */
     private Byte tagType;
 
+    /**
+     * 创建时间
+     */
     private Date createdTime;
 
+    /**
+     * 修改时间
+     */
     private Date modifyTime;
 
-    private static final long serialVersionUID = 1L;
+
 }
